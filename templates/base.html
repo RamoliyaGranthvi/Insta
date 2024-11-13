@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Your App{% endblock %}</title>
+    <!-- Link to external stylesheets and scripts -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery and Bootstrap JS (only if you need them) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+
+<body>
+
+<!-- Flash messages section -->
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        <div class="alert-container">
+            {% for category, message in messages %}
+                <div class="alert-box {{ category }}">
+                    <strong>{{ category.capitalize() }}!</strong> {{ message }}
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+<!--sidebar-->
+<div class="container" style="max-width:100%">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="container-sidebar">
+                <div class="sidebar">
+                    <!-- Logo section -->
+                    <div class="instagram-text-logo">
+                        <img src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" id="white-color" alt="Instagram Logo">
+                    </div>
+                    <nav>
+                        <!-- Navigation items -->
+                        <div class="sub-section" id="clicked">
+                            <i class="fa-solid fa-house"></i>
+                            <a href="{{url_for('dashboard')}}">Home</a>
+                        </div>
+                        <div class="sub-section">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <a href="#">Search</a>
+                        </div>
+                        <div class="sub-section">
+                            <i class="fa-regular fa-compass"></i>
+                            <a href="#">Explore</a>
+                        </div>
+                        <div class="sub-section">
+                            <i class="fa-solid fa-clapperboard"></i>
+                            <a href="#">Reels</a>
+                        </div>
+                        <div class="sub-section">
+                            <i class="fa-regular fa-message"></i>
+                            <a href="#">Messages</a>
+                        </div>
+                        <div class="sub-section" id="hidden2">
+                            <i class="fa-regular fa-heart"></i>
+                            <a href="#">Notification</a>
+                        </div>
+                        <div class="sub-section" id="hidden1">
+                            <i class="fa-solid fa-square-plus"></i>
+                            <a href="{{url_for('add_post')}}">Create</a>
+                        </div>
+
+                        <!-- Profile section -->
+                        <div class="sub-section">
+                            <div class="Profile-img">
+                                {% if Profile %}
+                                    {% for p in Profile %}
+                                        {% if current_user_id == p.user_id %}
+                                            <img src="{{ url_for('static', filename=p.image_path) }}" class="profiled-img" alt="Profile Image">
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+
+                                {% endif %}
+                            </div>
+                            <a href="{{url_for('profile')}}">Profile</a>
+                        </div>
+
+                        <!-- More menu section -->
+                        <div class="menu-section" id="hidden">
+                            <i class="fa-solid fa-bars"></i>
+                            <a href="{{url_for('profile')}}">More</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+         <!-- Content Block -->
+    {% block content %}{% endblock %}
+
+
+
+</body>
+            <!-- Scripts -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</html>

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - Instagram{% endblock %}
+
+{% block content %}
+<div class="col-md-6">
+    <div class="container">
+        <div class="post-box">
+            <h1>Upload an Image</h1>
+
+            <input type="file" id="upload" accept="image/*" class="upload-input" style="display: none;">
+            <div class="image-preview" id="imagePreview"></div>
+            <button id="nextButton" class="next-button" style="display: none;">Next</button>
+
+            <label for="upload" class="upload-label">
+                <i class="fa fa-image"></i>
+                &nbsp; <span>Click to Upload Image</span>
+            </label>
+
+            <form action="{{ url_for('add_post') }}" method="POST" enctype="multipart/form-data">
+                <div class="edit-section" id="editSection" style="display: none;">
+                    <h2>Edit Image</h2>
+                    <div class="edited-preview" id="editedPreview"></div>
+                    <div class="filter-buttons">
+                        <button type="button" class="filter-button" data-filter="none">None</button>
+                        <button type="button" class="filter-button" data-filter="grayscale(100%)">Grayscale</button>
+                        <button type="button" class="filter-button" data-filter="sepia(100%)">Sepia</button>
+                        <button type="button" class="filter-button" data-filter="contrast(200%)">High Contrast</button>
+                        <button type="button" class="filter-button" data-filter="saturate(200%)">Saturation</button>
+                    </div>
+
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                    <label for="content">Content:</label>
+                    <textarea id="content" name="content" rows="4" required></textarea>
+
+                    <input type="hidden" id="filteredImage" name="filtered_image">
+                    <button type="submit" id="postButton" class="save-button">Add Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Link to External JS File -->
+<script src="{{ url_for('static', filename='js/add_post.js') }}"></script>
+{% endblock %}

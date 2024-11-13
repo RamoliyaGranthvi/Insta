@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - Instagram{% endblock %}
+
+{% block content %}
+  <div class="col-md-6">
+          <div class="container-posts">
+              <div class="row">
+                    <div class="nav-hidden-logo" id="white-2color">
+                <img src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" alt="">
+            </div>
+        </div>
+       <div class="story-section">
+    <div class="story">
+        <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="">
+        </div>
+        <span>Your story</span>
+    </div>
+</div>  {% for post in posts %}
+                {% set user = users | selectattr("id", "equalto", post.user_id) | first %}
+                {% if user %}
+                    <div class="post-area">
+                        <div class="post-main">
+                            <div class="post-header">
+                                <div class="post-left-header">
+                                    <div class="post-image">
+                                        {% set Profile = profiles | selectattr("user_id", "equalto", user.id) | first %}
+                                        {% if Profile %}
+                                            <img src="{{ url_for('static', filename=Profile.image_path) }}" class="profiles-img" alt="Profile Image">
+                                        {% else %}
+<!--                                            <p>No Profile image available.</p>-->
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                 <p class="post-username">
+                                 <a href="{{ url_for('profile', User_id=user.id) }}">
+                                <h1 class="top-bar__title__text">{{ user.username }}</h1>
+                                </a>
+                                </p>
+                            <div class="menu-section">
+                             <i class="fa-solid fa-bars menu-toggle"></i>
+                             <div class="dropdown-content">
+                             <a href="#option1">Setting</a><br>
+                            <a href="#option2">help</a>
+                                 <form action="{{ url_for('logout') }}" method="post">
+                                <button type="submit">Logout</button><br>
+                             </form>
+                                 {% if post %}
+                         <form id="deletePostForm" method="POST" action="{{ url_for('add_post', post_id=post.id) }}" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                         <input type="hidden" name="_method" value="DELETE">  <!-- This simulates the DELETE request -->
+                        <button type="submit" class="btn btn-danger">Delete Post</button>
+                        </form>
+                        {% endif %}
+                             </div>
+                            </div>
+                            </div>
+                            <div class="post-main-image">
+                              <img src="{{ url_for('static', filename=post.image_path) }}" alt="Post Image">
+                            </div>
+                                    <div class="post-fotter">
+                                    <div class="post-fotter-left">
+                                 <!-- Like button HTML -->
+                              <div class="like-button" data-post-id="{{ post.id }}">
+                                  <i class="fa fa-heart fa-regular"></i>  <!-- Initially an empty heart -->
+                                  <span class="like-count">{{ post.likes_count }}</span>  <!-- Display current like count -->
+                                </div>
+                                        <i class="fa-regular fa-message commentIcon" id="commentBtn"></i>
+
+
+                            <!-- Comment box that will appear when the icon is clicked -->
+                             <div class="commentBox" id="commentBox" style="display:none;" >
+                            <!-- Close Button for comment box -->
+
+                            <p class="taskDescription">hiii</p>
+
+                            <ul class="commentList">
+                            <li>
+                            <div class="commenterImage">
+                                <ul class="commentList">
+                        {% for comment in comments %}
+                            <li>
+                                <div class="commenterImage">
+                                    <img src="{{ url_for('static', filename=comment.user.image_path) }}" class="profiles-img" alt="Profile Image">
+                                    <span>{{ comment.user.username }}</span>
+                                </div>
+                                <div class="commentText">
+                                    <p>{{ comment.text }}</p>
+                                    <span class="date sub-text">{{ comment.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</span>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li>No comments yet.</li>
+                        {% endfor %}
+                    </ul>
+                        </div>
+
+                        <!-- Comment Form -->
+                        <form class="form-inline" role="form" action="{{ url_for('commentbox') }}" method="POST">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="comment_text" placeholder="Your comments" required />
+                            </div>
+                            <input type="hidden" name="user_id" value="{{ user.id }}">
+                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                            <div class="form-group">
+                                <button class="btn btn-default" type="submit">Add Comment</button>
+                            </div>
+                        </form>
+                            </li>
+                            </ul>
+                             </div>
+                                <i class="fa-regular fa-paper-plane"></i>
+                               </div>
+                                     <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                              <div class="post-description">
+                                        <p class="post-liked">Liked by share and others</p>
+                                        <p class="title"> {{ post.content }}</p>
+                                    </div>
+                                    </div>
+                        </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Right Column for Suggested Users (Sidebar) -->
+<!--        <div class="col-md-3">-->
+<!--            <div class="container-chats">-->
+<!--                <div class="follow-section">-->
+<!--                    <div class="Profile-follow Profile-follow-hovering">-->
+<!--                        <div class="Profile-follow-left">-->
+<!--                            <div class="Profile-follow-image">-->
+<!--                        <img  class="chat-profile-img"  src="https://i.postimg.cc/zB3mRnhs/apy-logo.png" alt="">-->
+<!--                            </div>-->
+<!--                            <div class="Profile-follow-content">-->
+<!--                                <p class="Profile-id">aquarius__57</p>-->
+<!--                                <p class="Profile-name">aquarius__57</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <a href="#" class="follow">switch</a>-->
+<!--                    </div>-->
+
+<!--                    <div class="suggestion-follow">-->
+<!--                        <p class="suggestion">Suggested for you</p>-->
+<!--                        <a href="#" class="see-all">see all</a>-->
+<!--                    </div>-->
+
+<!--                    <div class="Profile-follow Profile-follow-hovering">-->
+<!--                        <div class="Profile-follow-left">-->
+<!--                            <div class="Profile-follow-image">-->
+<!--                                <img  class="chat-profile-img" src="https://media.istockphoto.com/id/1388253782/photo/positive-successful-millennial-business-professional-man-head-shot-portrait.webp?b=1&s=612x612&w=0&k=20&c=VsTsa0kjyZ7ALe-nyKAUfynyRxZo8H4LRMdu_ecPuOY=" alt="Profile Image">-->
+<!--                            </div>-->
+<!--                            <div class="Profile-follow-content">-->
+<!--                                <p class="Profile-id">rohit_@135</p>-->
+<!--                                <p class="Profile-name">Followed by shiv_s177</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <a href="#" class="follow">follow</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+
+{% endblock %}
+
+

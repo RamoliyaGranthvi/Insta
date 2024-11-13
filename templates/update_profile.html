@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - Instagram{% endblock %}
+
+{% block content %}
+
+       <form action="{{ url_for('updateprofile') }}" method="POST" enctype="multipart/form-data">
+
+    <div class="form-group">
+          {% for user in users %}
+          {% if user. id == current_user_id %}
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" readonly>{{ user.username }}
+         {% endif %}
+        {% endfor %}
+
+    </div>
+
+    <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input type="text" class="form-control" id="nickname" name="nickname" value="{{ profile.nickname }}">
+    </div>
+
+    <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea class="form-control" id="bio" name="bio" rows="4">{{ profile.bio }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="image">Profile Image</label>
+        <input type="file" class="form-control-file" id="image" name="image">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Profile</button>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+
+{% endblock %}

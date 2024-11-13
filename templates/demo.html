@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+          <div class="container-sidebar">
+              <div class="sidebar">
+<!--                  content here &#45;&#45; -->
+              </div>
+
+          </div>
+
+      </div>
+      <div class="col-md-6">
+          <div class="container-posts">
+              <div class="row">
+                  <div class="app-story">
+                      hii
+                  </div>
+                  <div class="app-posts">
+                      hii
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      <div class="col-md-3">
+          <div class="container-chats">
+              <div class="row">
+                  <div class="chats">
+                      hii
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</div>
+
+</body>
+</html>
+
+
+.page {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 550px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.logo1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f729b;
+}
+
+button {
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #365e8d;
+}
+
+
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #3b5998;
+    outline: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+ul li {
+    margin: 19px 22px;
+}
+
+a {
+    color: #3b5998;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.option {
+    margin-top: 20px;
+}
+
+.otherapps {
+    margin-top: 20px;
+}
+
+.otherapps button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.otherapps button:hover {
+    background-color: #f7f7f7;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #777;
+}
+/* Sidebar Styling */
+.sidebar {
+    background-color:#b5ab8d;/* Light gray background */
+    padding: 20px;
+    height: 100vh; /* Full height of the viewport */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-wrapper h1 {
+    font-size: 24px;
+    color: #343a40; /* Dark gray */
+    margin: 0;
+}
+
+.sidebar-menu {
+    margin-top: 20px;
+}
+
+.nav-link  {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.nav-link:hover {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* White text on hover */
+}.sidebar-menu li {
+    display: flex;
+    align-items: center; /* Center vertically */
+}
+
+.sidebar-menu li i {
+    margin-right: 10px; /* Space between icon and text */
+    color:#1b1e21; /* Change icon color */
+}
+.Profile-posts {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll; /* Enable scrolling */
+    height: 598px; /* Adjust as needed */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.Profile-posts::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.Profile-posts {
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+/* Hide scrollbar for IE and Edge */
+.Profile-posts {
+    -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+}
+
+.grid11 {
+    display: flex;
+    gap: 15px;
+    overflow: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.grid1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Spacing between posts */
+    overflow: hidden; /* No scroll here; handle in Profile-posts*/
+}
+.Profile-posts h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.posts2 {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    flex: 1 1 calc(33.333% - 15px); /* Adjust width for three columns */
+}
+
+.posts2:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.posts2 img {
+    width: 319px;
+    height: 211px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.post-title {
+    margin: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.post-content, .post-location {
+    margin: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.fa-heart-o {
+    color:#000;; /* Heart icon color */
+    margin: 10px;
+    cursor: pointer; /* Change cursor on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .posts2 {
+        flex: 1 1 calc(50% - 15px); /* Two columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .posts2 {
+        flex: 1 1 100%; /* Single column on extra small screens */
+    }
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+input,
+button {
+    font: inherit;
+}
+
+body {
+    display: flex;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto", sans-serif;
+    min-height: 100vh;
+    background: hsl(199deg, 8%, 83%);
+}
+
+.container{
+
+    overflow: hidden;
+    position: relative;
+    display: flex;
+
+}
+.container-sidebar{
+    position:relative;
+    width: 00px;
+}
+.container-posts{
+    position:relative;
+}
+.container-chats{
+    position:fixed;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--base--secondary);
+}
+
+.bar--top {
+    padding-inline: 1em;
+    border-bottom: 1px solid var(--secondary--accent);
+}
+
+.cta--button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--base--secondary);
+    border: 0;
+}
+
+.backspace {
+    display: inline-flex;
+    justify-content: start;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    position: relative;
+}
+
+.backspace::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: #1b1e21;
+    box-shadow: 0 0 0 3px #0002;
+    opacity: 0;
+    transition: opacity 166ms ease;
+}
+
+.backspace:hover::before {
+    opacity: 1;
+}
+
+.account__name {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.account__name.large {
+    margin-inline-start: 28rem;
+}
+
+.primary__navigation {
+    display: none;
+}
+
+.nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    aspect-ratio: 1;
+}
+
+.nav-toggle > .material-symbols-outlined {
+    display: inline-flex;
+    justify-content: start;
+    width: 0.825rem;
+    font-weight: bold;
+}
+
+.main {
+    scrollbar-width: none;
+    overflow: auto;
+    /*     height: 100%; */
+}
+
+.account__info {
+    background-color: #fff;
+    padding: 0.5rem;
+}
+
+.account__details {
+    display: flex;
+    height: 72px;
+    align-items: center;
+}
+
+.logo {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    height: 100%;
+    margin-inline-end: 0.75rem;
+    background: linear-gradient(45deg, var(--ig-orange), var(--ig-maroon));
+    position: relative;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: 2px;
+    border-radius: 50%;
+    background-color: #fff;
+    outline: 1px solid var(--secondary--accent);
+    outline-offset: -0.25rem;
+    box-shadow: 0 0 0px 3px #fff inset,
+        0 0 0px 45px var(--light-transparent) inset;
+}
+
+.detail__group--content {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.detail__group--content > * {
+    display: flex;
+    line-height: 1.2;
+    justify-content: center;
+    flex-basis: 100%;
+    text-align: center;
+    flex-direction: column;
+}
+
+.detail__group--content [class$="data"] {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.detail__group--content [class$="label"] {
+    font-size: 13px;
+}
+
+.profile__info {
+    margin-block-start: 0.25rem;
+    display: flex;
+    line-height: 1.3;
+    flex-direction: column;
+}
+
+.account__name.small {
+    width: max-content;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.profile__description {
+    font-size: 13px;
+}
+
+.ig--link {
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.cta__button--group {
+    display: flex;
+    gap: 0.25rem;
+    margin-top: 0.25rem;
+}
+
+.cta__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    height: 30px;
+    border: 0;
+    background-color: var(--light-100);
+    border-radius: 4px;
+}
+
+.cta__button:is(:hover, :focus) {
+    outline: 1px solid var(--secondary--accent);
+    outline-offset: -1px;
+    background: #fff !important;
+    color: #262626 !important;
+}
+
+.cta__button:is(.follow, .message) {
+    flex: 1;
+    font-weight: 600;
+}
+
+.cta__button.follow {
+    background: var(--primary-accent--blue);
+    color: #fff;
+}
+
+.cta__button.add {
+    aspect-ratio: 1;
+}
+
+.cta__button.add .material-symbols-outlined {
+    font-size: 1.25rem;
+    transform: scaleX(-1);
+}
+
+.story__highlights {
+    margin-block-start: 0.5rem;
+}
+
+.media__scroller--content {
+    display: flex;
+    flex: 1;
+}
+
+.list__item {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.media__link {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    height: 54px;
+    background: linear-gradient(45deg, var(--ig-orange), var(--ig-maroon));
+    position: relative;
+}
+
+.media__link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: 0.125rem;
+    border-radius: 50%;
+    background-color: #fff;
+    outline: 1px solid var(--secondary--accent);
+    outline-offset: -0.25rem;
+    box-shadow: 0 0 0px 3px #fff inset,
+        0 0 0px 45px var(--light-transparent) inset;
+}
+
+.link__text {
+    font-size: 12px;
+}
+
+.media__navigation {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.tabs {
+    display: flex;
+    flex-shrink: 0;
+    min-height: 44px;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+
+.tab__link {
+    width: 100%;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+}
+
+.tabs__content {
+    display: grid;
+    place-content: start center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 0.125rem;
+    padding-block: 0.125rem;
+    background-color: #fff;
+}
+
+.tab__content--article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    background-color: #0002;
+}
+
+.footer {
+    height: var(--footer--height);
+    margin-top: auto;
+    background: var(--base--secondary);
+}
+
+.bar--bottom {
+    display: flex;
+    padding-block: 0.5rem 0.75rem;
+    padding-inline: 1rem;
+}
+
+.footer-navigation {
+    display: flex;
+    flex: 1;
+    justify-content: stretch;
+}
+
+.footer__nav--item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.footer__nav--item > * {
+    display: inline-flex;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    color: #262626;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}
+ <h1>Add a New Post</h1><br>-->
+    <!--        <form action="{{url_for('add_post')}}" method="POST"  enctype="multipart/form-data">-->
+
+<!--            <label for="title">Title:</label>-->
+<!--            <input type="text" id="title" name="title" required>-->
+
+<!--            <label for="content">Content:</label>-->
+<!--            <textarea id="content" name="content" rows="4" required></textarea>-->
+
+<!--            <label for="image">Upload Image:</label>-->
+<!--            <input type="file" id="image" name="image" required>-->
+
+<!--            <button type="submit">Add Post</button>-->
+<!--        </form>-->
+
+<!--        <div id="preview" class="preview"></div>-->
+ <section class="actions">
+    <button class="actions__btn actions__btn--active">Follow</button>
+    <button class="actions__btn">Message</button>
+    <button class="actions__btn actions__btn--icon"><i class="fa fa-angle-down"></i></button>
+  </section>
+  <section class="stories">
+    <div class="stories__single">
+      <div class="stories__single__img-holder">
+        <div class="stories__single__img-holder__inner" style="background-image: url('https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&dpr=1&auto=format&fit=crop&w=416&h=312&q=60');"></div>
+      </div>
+      <p class="stories__single__description">Game On</p>
+    </div>
+    <div class="stories__single">
+      <div class="stories__single__img-holder">
+        <div class="stories__single__img-holder__inner" style="background-image: url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');"></div>
+      </div>
+      <p class="stories__single__description">Take a Stand</p>
+    </div>
+    <div class="stories__single">
+      <div class="stories__single__img-holder">
+        <div class="stories__single__img-holder__inner" style="background-image: url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');"></div>
+      </div>
+      <p class="stories__single__description">You got this</p>
+    </div>
+    <div class="stories__single">
+      <div class="stories__single__img-holder">
+        <div class="stories__single__img-holder__inner" style="background-image: url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');"></div>
+      </div>
+      <p class="stories__single__description">#skater girl</p>
+    </div>
+    <div class="stories__single">
+      <div class="stories__single__img-holder">
+        <div class="stories__single__img-holder__inner" style="background-image: url('https://images.unsplash.com/photo-1474524955719-b9f87c50ce47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');"></div>
+      </div>
+      <p class="stories__single__description">Game On</p>
+    </div>
+    <div class="stories__single">
+      <div class="stories__single__img-holder">
+        <div class="stories__single__img-holder__inner" style="background-image: url('https://images.unsplash.com/photo-1504700610630-ac6aba3536d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');"></div>
+      </div>
+      <p class="stories__single__description">Take a Stand</p>
+    </div>
+    <div class="stories__single">
+      <div class="stories__single__img-holder">
+        <div class="stories__single__img-holder__inner" style="background-image: url('https://images.unsplash.com/photo-1508873881324-c92a3fc536ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');"></div>
+      </div>
+      <p class="stories__single__description">You got this</p>
+    </div>
+    <div class="stories__single">
+      <div class="stories__single__img-holder">
+        <div class="stories__single__img-holder__inner" style="background-image: url('https://images.unsplash.com/photo-1518144591331-17a5dd71c477?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');"></div>
+      </div>
+      <p class="stories__single__description">#skater girl</p>
+    </div>
+  </section>
+  <div class="col-md-6">
+          <div class="container-posts">
+              <div class="row">
+        <div class="post-section">
+            <!-- Optional logo section -->
+             <div class="nav-hidden-logo" id="white-2color">
+                <img src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" alt="">
+            </div>
+        </div>
+                 <div class="story-section">
+            <div class="story">
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="">
+                </div>
+                <span>Your story</span>
+            </div>
+            <div class="story" id="story-7">
+                <div class="story-image">
+                    <img src="https://plus.unsplash.com/premium_photo-1664453546896-ad5e0f895eab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="">
+                </div>
+                <span>Zara_comp</span>
+            </div>
+        </div>
+        {% for post in posts %}
+            {% for user in users %}
+                {% if post.user_id == user.id %}
+                    <div class="post-area">
+                        <div class="post-main">
+                            <div class="post-header">
+                                <div class="post-left-header">
+                                    <div class="post-image">
+                                        {% if profiles %}
+                                         {% for p in profiles %}
+                                            {% if p.user_id == user.id %}
+                                                    <img src="{{ url_for('static', filename=p.image_path) }}" class="profiles-img" alt="Profile Image">
+                                                 {% endif %}
+                                            {% endfor %}
+                                            {% else %}
+                                                <p>No profiles available.</p>
+                                            {% endif %}
+                                    </div>
+                                       <p class="post-username">
+    <a href="{{ url_for('Profile', User_id=user.id) }}">
+        <h1 class="top-bar__title__text">{{ user.username }}</h1>
+    </a>
+</p>
+                                <div class="post-main-image">
+                                     <img src="{{ url_for('static', filename=post.image_path) }}" alt="Post Image" >
+                                </div>
+                                <div class="post-fotter">
+                                    <div class="post-fotter-left">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-message"></i>
+
+                                    <i class="fa-regular fa-paper-plane"></i>
+                               </div>
+                                     <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                              <div class="post-description">
+                                 <p class="post-liked">Liked by share and others</p>
+                                     <p class="title"> {{ post.content }}</p>
+                            </div>
+                  </div>
+                </div>
+                              {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                          </div>
+
+                      </div>
+       <div class="col-md-3">
+          <div class="container-chats">
+              <div class="row">
+        <div class="follow-section">
+            <div class="Profile-follow Profile-follow-hovering">
+                <div class="Profile-follow-left">
+                    <div class="Profile-follow-image">
+                        <img src="https://i.postimg.cc/zB3mRnhs/apy-logo.png" alt="">
+                    </div>
+                    <div class="Profile-follow-content">
+                        <p class="Profile-id">aquarius__57</p>
+                        <p class="Profile-name">aquarius__57</p>
+                    </div>
+                </div>
+                <a href="#" class="follow">switch</a>
+            </div>
+            <div class="suggestion-follow">
+                <p class="suggestion">Suggested for you</p>
+                <a href="#" class="see-all">see all</a>
+            </div>
+            <div class="Profile-follow Profile-follow-hovering">
+                <div class="Profile-follow-left">
+                    <div class="Profile-follow-image">
+                        <img src="https://media.istockphoto.com/id/1388253782/photo/positive-successful-millennial-business-professional-man-head-shot-portrait.webp?b=1&s=612x612&w=0&k=20&c=VsTsa0kjyZ7ALe-nyKAUfynyRxZo8H4LRMdu_ecPuOY=" alt="">
+                    </div>
+                    <div class="Profile-follow-content">
+                        <p class="Profile-id">rohit_@135</p>
+                        <p class="Profile-name">Followed by shiv_s177</p>
+                    </div>
+                </div>
+                <a href="#" class="follow">follow</a>
+            </div>
+        </div>
+    </div>

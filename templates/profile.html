@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - Instagram{% endblock %}
+
+{% block content %}
+<div class="container-Profile">
+    <section class="top-bar">
+        <div class="top-bar__title">
+            {% for user in users %}
+            {% if user. id == current_user_id %}
+            <h1 class="top-bar__title__text">{{ user.username }}</h1>
+            <img class='top-bar__title__verified-icon' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2053557/kisspng-social-media-instagram-verified-badge-symbol-compu-5b1eedb5aba638.1612204615287535897031.jpg" alt="verified-icon">
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="menu-section" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="dropdown-content" id="dropdown">
+            <a href="#option1">Setting</a>
+            <a href="#option2">help</a>
+            <form action="{{ url_for('logout') }}" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </section>
+ <section class="stats">
+    {% for Profile in Profile %}
+        {% if user.id == current_user_id %}
+            <div class="Profile-img-container">
+                <img src="{{ url_for('static', filename=Profile.image_path) }}" class="profiles-img" alt="Profile Image">
+            </div>
+        {% endif %}
+    {% endfor %}
+    <div class="stats__data">
+        <div class="stats__data__point">
+            {% for user in users %}
+                {% if user.id == current_user_id %}
+                    <div class="stats__data__point__value">{{ user.post_count }}</div>
+                    <div class="stats__data__point__description">Posts</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="stats__data__point">
+            <div class="stats__data__point__value">317</div>
+            <div class="stats__data__point__description">Followers</div>
+        </div>
+        <div class="stats__data__point">
+            <div class="stats__data__point__value">225</div>
+            <div class="stats__data__point__description">Following</div>
+        </div>
+    </div>
+</section>
+    <section class="description">
+        {% for Profile in Profile%}
+        {% if user. id == current_user_id %}
+        <h2 class="decription__title"> {{ Profile.nickname}}</h2>
+        <p>
+            {{Profile.bio}}
+        </p>
+        <a href="https://www.antibullyingpro.com/resources">www.anibullyingpro.com/resources</a>
+        {% endif %}
+        {% endfor%}
+    </section>
+ <div class="menu-section" id="hidden">
+
+                <a href="{{ url_for('updateprofile') }}">Edit Profile</a>
+
+</div>
+    <section class="actions">
+        <button class="actions__btn actions__btn--active">Follow</button>
+        <button class="actions__btn">Message</button>
+        <button class="actions__btn actions__btn--icon"><i class="fa fa-angle-down"></i></button>
+    </section>
+    <section class="stories">
+        <div class="stories__single">
+            <div class="stories__single__img-holder">
+                <div class="stories__single__img-holder__inner" style="background-image: url('');"></div>
+            </div>
+            <p class="stories__single__description">Game On</p>
+        </div>
+        <div class="stories__single">
+            <div class="stories__single__img-holder">
+                <div class="stories__single__img-holder__inner" style="background-image: url('');"></div>
+            </div>
+            <p class="stories__single__description">Game On</p>
+        </div>
+        <div class="stories__single">
+            <div class="stories__single__img-holder">
+                <div class="stories__single__img-holder__inner" style="background-image: url('');"></div>
+            </div>
+            <p class="stories__single__description">Game On</p>
+        </div>
+        <div class="stories__single">
+            <div class="stories__single__img-holder">
+                <div class="stories__single__img-holder__inner" style="background-image: url('');"></div>
+            </div>
+            <p class="stories__single__description">Game On</p>
+        </div>
+
+    </section>
+    <section class="tabs">
+        <button class="tabs__btn tabs__btn--active">
+            <img class='tabs__btn__icon' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2053557/grid-icon.png" alt="grid icon">
+        </button>
+        <button class="tabs__btn">
+            <img class='tabs__btn__icon' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2053557/igtv-icon.png" alt="igtv icon">
+        </button>
+        <button class="tabs__btn">
+            <img class='tabs__btn__icon' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2053557/smile-icon.png" alt="smile icon">
+        </button>
+        <button class="tabs__btn">
+            <img class='tabs__btn__icon' src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2053557/tagged-icon.png" alt="tagged icon">
+        </button>
+
+    </section>
+    <section class="grid">
+
+        {% for post in posts %}
+        {% if post.user_id ==  current_user_id %}
+
+        <a href="{{ url_for('profile', user_id=post.user_id) }}" class="grid__photo" style="background-image: url('{{ url_for('static', filename=post.image_path) }}');"></a>
+
+        {% endif %}
+        {% endfor %}
+
+    </section>
+</div>
+
+<script>
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+    var dropdown = document.getElementById("dropdown");
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+    }
+});
+
+</script>
+
+{% endblock %}
