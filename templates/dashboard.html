@@ -25,7 +25,7 @@
                             <div class="post-header">
                                 <div class="post-left-header">
                                     <div class="post-image">
-                                        {% set Profile = profiles | selectattr("user_id", "equalto", user.id) | first %}
+                                           {% set Profile = profiles | selectattr("user_id", "equalto", user.id) | first %}
                                         {% if Profile %}
                                             <img src="{{ url_for('static', filename=Profile.image_path) }}" class="profiles-img" alt="Profile Image">
                                         {% else %}
@@ -165,4 +165,4 @@
 
 {% endblock %}
 
-
+  </div>
